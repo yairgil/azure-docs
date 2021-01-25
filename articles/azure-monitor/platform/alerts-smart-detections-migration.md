@@ -57,11 +57,11 @@ To see your new alert rules after the migration is completed:
 
 1. select **Alerts** under the **Monitoring** heading in your Application Insights resource left-side menu.
 
-![Alerts Menu](./media/alerts=smart-detections-migration/Application-Insights-Alerts.png)
+![Alerts Menu](media/alerts-smart-detections-migration/Application-Insights-Alerts.png)
 
 2. Select **Manage Alert Rules**
 
-![Manage Alert Rules](./media/alerts=smart-detections-migration/Manage-Alert-Rules.png)
+![Manage Alert Rules](media/alerts-smart-detections-migration/Manage-Alert-Rules.png)
 
 3. Select **Signal Type** to be **Smart Detector** in order to filter and present the Smart Detector alert rules.
 
@@ -77,11 +77,11 @@ Note that once the new alert rules are created, you can configure different acti
 ## Viewing your Smart Detection Alerts
 Following the migration process, you can still see the available detections in the Smart Detections feed of your Application Insights resource.
 
-![Smart Detector Rules](./media/alerts=smart-detections-migration/Smart-Detection-Feed.png)
+![Smart Detection Feed](media/alerts-smart-detections-migration/Smart-Detection-Feed.png)
 
 In addition, you can now see view your Smart Detection alerts by selecting the Alerts entry in your Application Insights resource left-side menu. Select **Signal Type** to be **Smart Detector** in order to filter and present only the Smart Detector alert rules. You can select an alert to see its detection details.
 
-![Smart Detector Rules](./media/alerts=smart-detections-migration/Smart-Detection-Alerts.png)
+![Smart Detection Alerts]/media/alerts-smart-detections-migration/Smart-Detection-Alerts.png)
 
     
 ## Migrate your Smart Detection using the Azure portal
@@ -94,11 +94,11 @@ To migrate an Application Insights resource Smart Detection to alerts, take the 
 
 2. Click on the banner reading **"Migrate Smart Detection to Smart Alerts (preview)**. The migration dialog will be opened.
 
-![Smart Detections Feed Banner](./media/alerts=smart-detections-migration/Application-Insights-Alerts.png)
+![Smart Detections Feed Banner](media/alerts-smart-detections-migration/Application-Insights-Alerts.png)
 
 3. Select **Migrate** to start the migration process.
 
-![Smart Detector Rules](./media/alerts=smart-detections-migration/Smart-Detector-Rules.png)
+![Smart Detection Rules](./media/alerts-smart-detections-migration/Smart-Detector-Rules.png)
 
 
 
