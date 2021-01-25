@@ -91,14 +91,13 @@ To migrate an Application Insights resource Smart Detection to alerts, take the 
 
 1. select **Smart Detection** under the **Investigate** heading in your Application Insights resource left-side menu.
 
-
 2. Click on the banner reading **"Migrate Smart Detection to Smart Alerts (preview)**. The migration dialog will be opened.
 
-![Smart Detections Feed Banner](media/alerts-smart-detections-migration/Application-Insights-Alerts.png)
+![Smart Detections Feed Banner](media/alerts-smart-detections-migration/Smart-Detection-Feed-Banner.png)
 
 3. Select **Migrate** to start the migration process.
 
-![Smart Detection Rules](./media/alerts-smart-detections-migration/Smart-Detector-Rules.png)
+![Smart Detection Migration Dialog](media/alerts-smart-detections-migration/Smart-Detection-Migration-Dialog.png)
 
 
 
