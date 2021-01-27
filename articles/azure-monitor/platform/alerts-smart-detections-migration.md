@@ -104,9 +104,32 @@ To migrate an Application Insights resource Smart Detection to alerts, take the 
 
 ## Programmatic migration
 
-### Azure PowerShell
-You can initiate Smart Detection migration to alerts using the following commands.
+### Azure PowerShell - trigger pre-configured migration
+You can initiate Smart Detection migration to alerts using the following commands. This will trigger automated, pre-configured migration creating the alert rule names and action groups as described in the is document.
 
 ```powershell
 az rest --method POST --uri /subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/migrateFromSmartDetections?api-version=2020-11-01 --body @body.txt
 ```
+Where body.txt should include:
+```
+{
+              "scope": [
+"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} /providers/microsoft.insights/components/{resourceName} "
+              ],
+              "actionGroupCreationPolicy" : "{Default/Default/Custom}",
+              "customActionGroupName" : "{actionGroupName}",
+}
+```
+
+### Customized migration using Azure Resource Manager template
+You can also initiate Smart Detection migration to alerts using an Azure Resource Manager template. Resource Manager templates provide better control by allowing you to customize the properties of the created alert rules, such as the alert rule name and the action groups to be used by each rule.
+
+To initiate a successful migration to alerts, you need to deploy an arm template for creating an alert rule for each of the supported detectors, and then another template for setting the respective property of the target Application Insights resource in order to mark the migration as completed.
+
+Here is the sequence of templates to be deployed in order to complete a successful migration.
+
+1. Template for Response Latency Degradation alert rule
+
+
+The following templates should 
+
