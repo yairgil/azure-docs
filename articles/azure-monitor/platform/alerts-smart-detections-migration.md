@@ -175,8 +175,10 @@ This Azure Resource Manager template example demonstrates configuring an **Respo
 }
 ```
 
-> [!NOTES]
+> [!NOTE]
 > Smart Alerts are a global service therefore rule location is created on the global location.
+
+> [!NOTE]
 > "id" property should change according to the specific detector configured. Value must be one of: **FailureAnomaliesDetector**, **RequestPerformanceDegradationDetector**, **DependencyPerformanceDegradationDetector**, **ExceptionVolumeChangedDetector**, **TraceSeverityDetector**, **MemoryLeakDetector**
 
 > [!NOTE]
