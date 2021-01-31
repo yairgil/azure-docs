@@ -113,6 +113,7 @@ To migrate an Application Insights resource Smart Detection to alerts, take the 
 ![Smart Detection Migration Dialog](media/alerts-smart-detections-migration/Smart-Detection-Migration-Dialog.png)
 
 
+## Programmatic migration
 
 ### Migrate your Smart Detection using Azure PowerShell 
 
@@ -136,6 +137,50 @@ Where body.txt should include:
 ```
 **ActionGroupCreationPolicy** selects the policy for migrating the email settings in the Smart Detection Rules into action groups. Allowed values are **'Auto'** for using the default action groups as described in this document, or **'Custom'**, for creating all alert rules with the action group specified in **'customActionGroupName'**. If **ActionGroupCreationPolicy** is not specified, 'Auto' policy is used.
 
+
+## Programmatic detector settings after migration
+
+### Configure Smart Alert rules settings using Azure Resource Manager templates
+
+After completing the migration of Smart Detection to alerts, you can use Azure Resource Management templates to configure Smart Alerts settings.
+
+This Azure Resource Manager template demonstrates configuring a Response Latency Degradation alert rule with a severity of 2. You should change the "id" name to any other detector you would like to configure, out of the following list:
+
+> [!NOTES]
+> Smart Alerts are a global service therefore rule location is created on the global location.
+> "id" property should change according to the specific detector configured. Value must be one of: FailureAnomaliesDetector, RequestPerformanceDegradationDetector, DependencyPerformanceDegradationDetector, ExceptionVolumeChangedDetector, TraceSeverityDetector, MemoryLeakDetector
+
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Response Latance Degradation - my-app",
+            "location": "global", 
+            "properties": {
+                  "description": "Response Latency Degradation notifies you of an unusual increase in latency in your app response to requests.",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                  "id": "RequestPerformanceDegradationDetector"
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> This Azure Resource Manager template is unique to the Failure Anomalies alert rule and is different from the other classic Smart Detection rules described in this article. If you want to manage Failure Anomalies manually this is done in Azure Monitor Alerts whereas all other Smart Detection rules are managed in the Smart Detection pane of the UI 
 
 ## Next Steps
 
