@@ -138,17 +138,13 @@ Where body.txt should include:
 **ActionGroupCreationPolicy** selects the policy for migrating the email settings in the Smart Detection Rules into action groups. Allowed values are **'Auto'** for using the default action groups as described in this document, or **'Custom'**, for creating all alert rules with the action group specified in **'customActionGroupName'**. If **ActionGroupCreationPolicy** is not specified, 'Auto' policy is used.
 
 
-## Programmatic detector settings after migration
+## Programmatic Smart Detection settings after migration
 
 ### Configure Smart Alert rules settings using Azure Resource Manager templates
 
 After completing the migration of Smart Detection to alerts, you can use Azure Resource Management templates to configure Smart Alerts settings.
 
-This Azure Resource Manager template demonstrates configuring a Response Latency Degradation alert rule with a severity of 2. You should change the "id" name to any other detector you would like to configure, out of the following list:
-
-> [!NOTES]
-> Smart Alerts are a global service therefore rule location is created on the global location.
-> "id" property should change according to the specific detector configured. Value must be one of: FailureAnomaliesDetector, RequestPerformanceDegradationDetector, DependencyPerformanceDegradationDetector, ExceptionVolumeChangedDetector, TraceSeverityDetector, MemoryLeakDetector
+This Azure Resource Manager template example demonstrates configuring an **Response Latency Degradation** alert rule in an **Enabled** state with a severity of 2. 
 
 
 ```json
@@ -179,8 +175,12 @@ This Azure Resource Manager template demonstrates configuring a Response Latency
 }
 ```
 
+> [!NOTES]
+> Smart Alerts are a global service therefore rule location is created on the global location.
+> "id" property should change according to the specific detector configured. Value must be one of: **FailureAnomaliesDetector**, **RequestPerformanceDegradationDetector**, **DependencyPerformanceDegradationDetector**, **ExceptionVolumeChangedDetector**, **TraceSeverityDetector**, **MemoryLeakDetector**
+
 > [!NOTE]
-> This Azure Resource Manager template is unique to the Failure Anomalies alert rule and is different from the other classic Smart Detection rules described in this article. If you want to manage Failure Anomalies manually this is done in Azure Monitor Alerts whereas all other Smart Detection rules are managed in the Smart Detection pane of the UI 
+> After completion of migration, Smart Detector settings must be configured using Smart Alerts templates, and can no longer be configured using the Application Insights ARM template, as described [here](https://docs.microsoft.com/en-us/azure/azure-monitor/app/proactive-arm-config#smart-detection-rule-configuration).
 
 ## Next Steps
 
