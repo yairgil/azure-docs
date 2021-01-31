@@ -136,3 +136,6 @@ Where body.txt should include:
 ```
 **ActionGroupCreationPolicy** selects the policy for migrating the email settings in the Smart Detection Rules into action groups. Allowed values are **'Auto'** for using the default action groups as described in this document, or **'Custom'**, for creating all alert rules with the action group specified in **'customActionGroupName'**. If **ActionGroupCreationPolicy** is not specified, 'Auto' policy is used.
 
+
+## Next Steps
+
