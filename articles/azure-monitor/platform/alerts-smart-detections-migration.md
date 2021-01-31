@@ -81,9 +81,9 @@ As part of the migration process, each new smart alert rule is automatically con
 Note that once the new alert rules are created, you can configure different action groups to the Smart Detection alert rules. You can also add more actions, modify, or delete the action groups created by the migration.
 
 
-## Viewing your Smart Detection Alerts
+## Viewing your Smart Detection Alerts after the migration
 
-Following the migration process, you can see view your Smart Detection alerts by selecting the Alerts entry in your Application Insights resource left-side menu. Select **Signal Type** to be **Smart Detector** in order to filter and present only the Smart Detector alert rules. You can select an alert to see its detection details.
+Following the migration process, you can view your Smart Detection alerts by selecting the Alerts entry in your Application Insights resource left-side menu. Select **Signal Type** to be **Smart Detector** in order to filter and present only the Smart Detector alert rules. You can select an alert to see its detection details.
 
 ![Smart Detection Alerts](media/alerts-smart-detections-migration/Smart-Detection-Alerts.png)
 
@@ -92,16 +92,21 @@ In addition, you can still see the available detections in the Smart Detections 
 
 ![Smart Detection Feed](media/alerts-smart-detections-migration/Smart-Detection-Feed.png)
 
+
 ## Migrate your Smart Detection using the Azure portal
-You can migrate your Smart Detection to alerts on a specific Application resource at a time. 
+
+You can apply the migration of your Smart Detection to alerts on a specific Application resource at a time. 
 
 To migrate an Application Insights resource Smart Detection to alerts, take the following steps:
 
+
 1. select **Smart Detection** under the **Investigate** heading in your Application Insights resource left-side menu.
+
 
 2. Click on the banner reading **"Migrate Smart Detection to Smart Alerts (preview)**. The migration dialog will be opened.
 
 ![Smart Detections Feed Banner](media/alerts-smart-detections-migration/Smart-Detection-Feed-Banner.png)
+
 
 3. Select **Migrate** to start the migration process.
 
@@ -109,35 +114,25 @@ To migrate an Application Insights resource Smart Detection to alerts, take the 
 
 
 
+### Migrate your Smart Detection using Azure PowerShell 
 
-## Programmatic migration
+You can initiate Smart Detection migration to alerts using the following PowerShell commands. This will trigger automated, pre-configured migration process, creating the alert rule names and action groups as described in the is document.
 
-### Azure PowerShell - trigger pre-configured migration
-You can initiate Smart Detection migration to alerts using the following commands. This will trigger automated, pre-configured migration creating the alert rule names and action groups as described in the is document.
+
 
 ```powershell
-az rest --method POST --uri /subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/migrateFromSmartDetections?api-version=2020-11-01 --body @body.txt
+az rest --method POST --uri /subscriptions/70afbb35-0463-4758-badf-d5aab5bce520/providers/Microsoft.AlertsManagement/migrateFromSmartDetection?api-version=2021-01-01-preview --body @body.txt
 ```
+
 Where body.txt should include:
-```
+```json
 {
               "scope": [
 "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} /providers/microsoft.insights/components/{resourceName} "
               ],
-              "actionGroupCreationPolicy" : "{Default/Default/Custom}",
-              "customActionGroupName" : "{actionGroupName}",
+              "actionGroupCreationPolicy" : "{Auto/Custom}",
+              "customActionGroupName" : "{actionGroupName}"           
 }
 ```
-
-### Customized migration using Azure Resource Manager template
-You can also initiate Smart Detection migration to alerts using an Azure Resource Manager template. Resource Manager templates provide better control by allowing you to customize the properties of the created alert rules, such as the alert rule name and the action groups to be used by each rule.
-
-To initiate a successful migration to alerts, you need to deploy an arm template for creating an alert rule for each of the supported detectors, and then another template for setting the respective property of the target Application Insights resource in order to mark the migration as completed.
-
-Here is the sequence of templates to be deployed in order to complete a successful migration.
-
-1. Template for Response Latency Degradation alert rule
-
-
-The following templates should 
+**ActionGroupCreationPolicy** selects the policy for migrating the email settings in the Smart Detection Rules into action groups. Allowed values are **'Auto'** for using the default action groups as described in this document, or **'Custom'**, for creating all alert rules with the action group specified in **'customActionGroupName'**. If **ActionGroupCreationPolicy** is not specified, 'Auto' policy is used.
 
