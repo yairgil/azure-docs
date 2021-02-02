@@ -6,12 +6,12 @@ ms.date: 01/30/2021
 
 ---
 
-# Migrate Azure Monitor Application Insights Smart Detection to Smart Alerts (Preview) 
+# Migrate Azure Monitor Application Insights Smart Detection to Smart Alerts (Preview)
 
 ## Overview
 This guide will walk you through the process of migrating Application Insights Smart Detection to Smart Alerts. The migration will create alert rules for the different Smart Alerts detectors. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
 
-You can view Smart Alert detections from the alerts you receive, and within the Azure portal alerts blade. In addition, you can still see them in Application Insights Smart Detection blade. 
+You can view Smart Alert detections from the alerts you receive, and within the Azure portal alerts blade. In addition, you can still see them in Application Insights Smart Detection blade.
 
 > [!NOTE]
 > Migration of Smart Detection to Smart Alerts is currently available for a private, invitation-only preview. Not all of the capabilities described below may be fully functional in the private preview version. If you are interested to participate in the private preview, please contact smart-alert-feedback@microsoft.com.
@@ -24,7 +24,7 @@ Alerts-based Smart Detection allows you to take advantage of the full capabiliti
 * [Action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) allows you to configure multiple types of notifications and actions which will be triggered when an alert is fired. This includes notification by email, SMS, voice call or push notifications, and actions such as secure webhook, Logic App, automation Runbook and more. Action groups further support management at scale by allowing you to configure actions once and use them across multiple alert rules
 * [Action Rules](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules?tabs=portal) help you define or suppress actions at any Azure Resource Manager scope (Azure subscription, resource group, or target resource). They have various filters that help you narrow down the specific subset of alert instances that you want to act on. 
 
-## Supported Detectors 
+## Supported Detectors
 
 The following Smart Detection capabilities are converted to alerts by the migration process, each with it's own alert rule:
 * Response latency degradation
@@ -71,7 +71,7 @@ To see your new alert rules after the migration is completed:
 
 As part of the migration process, each new smart alert rule is automatically configured with an action group. The configured action group for each rule depends on the notification configuration for the equivalent smart detector prior to the migration.
 * If you didn’t previously change the default notification for a detector, or the detector didn’t have notification at all (preview detectors), the respective alert rule will be configured with the “Application Insights Smart Detection” action group. If an action group with that name already exists in this subscription, the existing action group will be used. If an action group with that name does not exist, it will be created with “Email Azure Resource Manager Role” actions, sending notification to your Azure Resource Manager Monitoring Contributor and Monitoring Reader users.
-* If you previously did change the default email notification for the equivalent detector, then an action group called “Application Insights Smart Detection Custom” will be created, with an email action sending notification to the previously configured email addresses.
+* If you previously did change the default email notification for the equivalent detector, then an action group called “Application Insights Smart Detection <n>” will be created (n=1,2...), with an email action sending notification to the previously configured email addresses.
 
 > [!NOTE]
 > If you are using the programmatic interface to trigger Smart Detection migration, you can create your Smart Alert rules with a custom (existing) action group. See below for more details.
@@ -90,7 +90,7 @@ In addition, you can still see the available detections in the Smart Detections 
 
 ## Migrate your Smart Detection using the Azure portal
 
-You can apply the migration of your Smart Detection to alerts on a specific Application resource at a time. 
+You can apply the migration of your Smart Detection to alerts on a specific Application Insights resource at a time. 
 
 To migrate an Application Insights resource Smart Detection to alerts, take the following steps:
 
@@ -110,8 +110,8 @@ To migrate an Application Insights resource Smart Detection to alerts, take the 
 
 You can initiate Smart Detection migration to alerts using the following PowerShell commands. This will trigger automated, pre-configured migration process, creating the alert rule names and action groups as described in the is document.
 
-```powershell
-az rest --method POST --uri /subscriptions/70afbb35-0463-4758-badf-d5aab5bce520/providers/Microsoft.AlertsManagement/migrateFromSmartDetection?api-version=2021-01-01-preview --body @body.txt
+```azurecli
+az rest --method POST --uri /subscriptions/{subscriptionId}/Microsoft.AlertsManagement/migrateFromSmartDetection?api-version=2021-01-01-preview --body @body.txt
 ```
 
 Where body.txt should include:
