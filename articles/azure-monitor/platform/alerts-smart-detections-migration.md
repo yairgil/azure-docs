@@ -26,19 +26,22 @@ Alerts-based Smart Detection allows you to take advantage of the full capabiliti
 
 ## Supported Detectors
 
-The following Smart Detection capabilities are converted to alerts by the migration process, each with it's own alert rule:
+The following Smart Detection capabilities are converted to alerts by the migration process, each with its own alert rule:
 * Response latency degradation
 * Dependency latency degradation
 * Trace severity degradation
 * Exception anomalies
 * Potential memory leak
 
-The following Smart Detection capabilities will not be converted to alerts and will no longer be supported once you complete the migration:
+The following Smart Detection capabilities will not be converted to alerts, following re-assessment of their effectiveness and usage:
+
 * Slow page load time
 * Slow server response time
 * Long dependency duration
 * Potential security issue detected (preview)
 * Abnormal rise in daily data volume (preview)
+
+As a result, these detectors will no longer be supported once you complete the migration.
 
 ## New alert rules
 
