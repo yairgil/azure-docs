@@ -91,6 +91,10 @@ In addition, you can still see the available detections in the Smart Detections 
 
 ![Smart Detection Feed](media/alerts-smart-detections-migration/Smart-Detection-Feed.png)
 
+## Smart Detection on new Application Insights resources
+
+During the preview period, new Application Insights resources will be created with the classic (non-alert) Smart Detection. You can migrate such newly created resources to use alerts-based Smart Detection, same as for any pre-existing Application Insights resources.
+
 ## Migrate your Smart Detection using the Azure portal
 
 You can apply the migration of your Smart Detection to alerts on a specific Application Insights resource at a time. 
