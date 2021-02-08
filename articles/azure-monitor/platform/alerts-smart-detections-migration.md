@@ -21,7 +21,7 @@ You can view Smart Alert detections from the alerts you receive, and within the 
 Smart Alerts allow you to take advantage of the full capabilities of Azure Monitor Alerts, including:
 
 * Smart Alert rules allow you to conveniently manage your Smart Detection alerts at scale using Azure Monitor alerts experience and API.
-* [Action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) allow you to configure multiple types of notifications and actions which will be triggered when an alert is fired. This includes notification by email, SMS, voice call or push notifications, and actions such as secure webhook, Logic App, automation runbook and more. Action groups further support management at scale by allowing you to configure actions once and use them across multiple alert rules
+* [Action groups](action-groups.md) allow you to configure multiple types of notifications and actions which will be triggered when an alert is fired. This includes notification by email, SMS, voice call or push notifications, and actions such as secure webhook, Logic App, automation runbook and more. Action groups further support management at scale by allowing you to configure actions once and use them across multiple alert rules
 * [Action Rules](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules?tabs=portal) help you define or suppress actions at any Azure Resource Manager scope (Azure subscription, resource group, or target resource). They have various filters that help you narrow down the specific subset of alert instances that you want to act on.
 
 ## Migrated Smart Detection capabilities
