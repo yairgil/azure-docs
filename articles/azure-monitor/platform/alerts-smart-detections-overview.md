@@ -36,19 +36,19 @@ You can discover Smart Alerts detections in two ways:
 
 * **You receive an alert notification** from Azure. Here's a typical example of a Smart Alert email notification:
   
-    ![Email alert](media/Alerts-Smart-Detections-Overview/smart-detection-feed.png)
+    ![Email alert](./media/Alerts-Smart-Detections-Overview/Smart-Detection-Feed.png)
   
     Click the button "View the alert in Azure Monitor" button to view the alert details in the portal.
   
-    ![Alert Details](media/Alerts-Smart-Detections-Overview/smart-detection-feed.png)
+    ![Alert Details](./media/alerts-smart-detections-overview/Smart-Detection-Feed.png)
 
 * **The Smart Detection feed**. In your Application Insights resource blade, select **Smart Detection** under the **Investigate** menu to see a list of recent detections.
 
-![View recent detections](media/Alerts-Smart-Detections-Overview/smart-detection-feed.png)
+![View recent detections](./media/alerts-smart-detections-overview/Smart-Detection-Feed.png)
 
 Select a detection to see its details.
 
-![View recent detections](media/Alerts-Smart-Detections-Overview/smart-detection-feed.png)
+![View recent detections](./media/alerts-smart-detections-overview/Smart-Detection-Feed.png)
 
 ## How to configure Smart Alert rules
 
