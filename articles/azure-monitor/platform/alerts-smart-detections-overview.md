@@ -2,7 +2,7 @@
 title: Smart Alerts in Azure Monitor Application Insights | Microsoft Docs
 description: Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems or performance degradation. Now alerting on found anomalies
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/10/2021
 
 ---
 
