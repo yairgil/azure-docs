@@ -17,7 +17,7 @@ When you create an Application Insights resource, Smart Alert rules are created 
 You can access the Smart Alert detections both from the alerts you receive, and from the Application Insights Smart Detection blade in the Azure portal.
 
 > [!NOTE]
-> If you have existing Application Insights resources that are not yet migrated to Smart Alerts (preview), you can still use ![Smart Detections](../app/proactive-diagnostics.md) for that resource. You can ![migrate](.alerts-smart-detections-migration.md) to Smart Alerts (preview) at any time.
+> If you have existing Application Insights resources that are not yet migrated to Smart Alerts (preview), you can still use ![Smart Detections](../app/proactive-diagnostics.md) for that resource. You can ![migrate](./alerts-smart-detections-migration.md) to Smart Alerts (preview) at any time.
 
 ## Which problems are detected?
 
@@ -36,7 +36,7 @@ You can discover Smart Alerts detections in two ways:
 
 * **You receive an alert notification** from Azure. Here's a typical example of a Smart Alert email notification:
   
-    ![Email alert](media/Smart-Detections-Alerts/Smart-Detection-Feed.png)
+    ![Email alert](media/Alerts-Smart-Detections-Overview/Smart-Detection-Feed.png)
   
     Click the button "View the alert in Azure Monitor" button to view the alert details in the portal.
   
