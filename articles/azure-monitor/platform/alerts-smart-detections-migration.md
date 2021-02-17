@@ -190,4 +190,5 @@ This Azure Resource Manager template example demonstrates configuring an **Respo
 > After completion of migration, Smart Detector settings must be configured using Smart Alerts templates, and can no longer be configured using the Application Insights Resource Manager template, as described [here](proactive-arm-config.md#smart-detection-rule-configuration).
 
 ## Next Steps
-WE NEED SOMETHING HERE
+- [Learn more about alerts in Azure](./alerts-overview.md)
+- [Learn more about Smart Alerts in Application Insights](./alerts-smart-detections-overview.md)
